@@ -1,0 +1,30 @@
+### Register user
+POST http://localhost:3333/auth/register
+content-type: application/json
+
+{
+  "email": "test4@test.com",
+  "password": "12345",
+  "firstName" : "firstName",
+  "lastName" : "firstName",
+  "username" : "@username"
+}
+### Login
+POST http://localhost:3333/auth/login
+content-type: application/json
+
+{
+  "email": "test4@test.com",
+  "password": "12345"
+}
+
+### Logout
+POST http://localhost:3333/auth/logout
+content-type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjYsImVtYWlsIjoidGVzdDRAdGVzdC5jb20iLCJpYXQiOjE2NTg5NTM1NzYsImV4cCI6MTY1ODk1NDQ3Nn0.KCrLDkBkAAgDO1Itf_a8UtdbdjoZIeV4WA08zv0jBOQ
+
+
+### Refresh token
+POST http://localhost:3333/auth/refresh
+content-type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjgsImVtYWlsIjoidGVzdDRAdGVzdC5jb20iLCJpYXQiOjE2NTg5NTM5MDcsImV4cCI6MTY1OTU1ODcwN30.Ex0pD5KkZZjQhdYmpDUcgoxmTeu4qqy3kgZtruSo22w
