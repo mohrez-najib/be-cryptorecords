@@ -21,7 +21,7 @@ content-type: application/json
 ### Logout
 POST http://localhost:3333/auth/logout
 content-type: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjYsImVtYWlsIjoidGVzdDRAdGVzdC5jb20iLCJpYXQiOjE2NTg5NTM1NzYsImV4cCI6MTY1ODk1NDQ3Nn0.KCrLDkBkAAgDO1Itf_a8UtdbdjoZIeV4WA08zv0jBOQ
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjgsInJvbGUiOiJVU0VSIiwiZW1haWwiOiJ0ZXN0NEB0ZXN0LmNvbSIsImlhdCI6MTY1OTA0MTI2MiwiZXhwIjoxNjU5MDQyMTYyfQ.QXWLsXQO5iv8GHj8k8FGP8hst7hIu90yg5JeU1IoG5A
 
 
 ### Refresh token

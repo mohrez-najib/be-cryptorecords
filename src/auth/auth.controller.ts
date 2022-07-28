@@ -6,11 +6,13 @@ import {
   Post,
   UseGuards,
 } from '@nestjs/common';
+import { Role } from '@prisma/client';
 import {
   GetCurrentUser,
   GetCurrentUserId,
   Public,
 } from 'src/common/decorators';
+import { Roles } from 'src/common/decorators/roles.decorators';
 import { RtGuard } from 'src/common/guards';
 import { Serialize } from 'src/common/interceptors/serialize.interceptor';
 import { AuthService } from './auth.service';
@@ -37,6 +39,7 @@ export class AuthController {
 
   @Post('/logout')
   @HttpCode(HttpStatus.OK)
+  @Roles(Role.USER)
   logout(@GetCurrentUserId() userId: number) {
     return this.authService.logout(userId);
   }
