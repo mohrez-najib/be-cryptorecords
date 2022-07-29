@@ -39,7 +39,7 @@ export class AuthController {
 
   @Post('/logout')
   @HttpCode(HttpStatus.OK)
-  @Roles(Role.USER)
+  @Roles(Role.CLIENT)
   logout(@GetCurrentUserId() userId: number) {
     return this.authService.logout(userId);
   }
