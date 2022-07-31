@@ -22,7 +22,7 @@
         "studio": "npx prisma studio",
         "db-push": "npx prisma db push",
         "generate-schema": "cat src/*/*.prisma > prisma/schema.prisma",
-        "migrate": "npm run generate-schema && npx prisma migrate dev --create-only && prisma generate"
+        "migrate": "npx prisma migrate dev --create-only && prisma generate"
     },
     "dependencies": {
         "@nestjs/common": "^9.0.0",

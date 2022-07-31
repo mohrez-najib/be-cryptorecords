@@ -1,0 +1,44 @@
+### Creat Draft
+POST    http://localhost:3333/client/draft
+content-type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJlMjU1MjhmNi00YzRlLTRjMWEtYjUxNi1jNzBhNjExNTdhYzkiLCJyb2xlIjoiQ0xJRU5UIiwiZW1haWwiOiJ0ZXN0MUB0ZXN0LmNvbSIsImlhdCI6MTY1OTI1ODE5NCwiZXhwIjoxNjU5MjY4OTk0fQ.YnAFkzbFA3FAFn8cv9uTVpwbNY9OV6Scn9O7PQ14qV0
+
+{
+"body" : [{
+    "colsNumber": 3,
+    "gap" : 4,
+    "cols" : []
+}]
+}
+### Get Draft
+GET     http://localhost:3333/client/draft?id=a650d4c5-9722-44c0-b05e-970ae141efd3
+content-type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJlMjU1MjhmNi00YzRlLTRjMWEtYjUxNi1jNzBhNjExNTdhYzkiLCJyb2xlIjoiQ0xJRU5UIiwiZW1haWwiOiJ0ZXN0MUB0ZXN0LmNvbSIsImlhdCI6MTY1OTI1ODE5NCwiZXhwIjoxNjU5MjY4OTk0fQ.YnAFkzbFA3FAFn8cv9uTVpwbNY9OV6Scn9O7PQ14qV0
+
+### Get All My Drafts
+GET     http://localhost:3333/client/draft/list
+content-type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJlMjU1MjhmNi00YzRlLTRjMWEtYjUxNi1jNzBhNjExNTdhYzkiLCJyb2xlIjoiQ0xJRU5UIiwiZW1haWwiOiJ0ZXN0MUB0ZXN0LmNvbSIsImlhdCI6MTY1OTI1ODE5NCwiZXhwIjoxNjU5MjY4OTk0fQ.YnAFkzbFA3FAFn8cv9uTVpwbNY9OV6Scn9O7PQ14qV0
+
+### Update Draft
+PUT    http://localhost:3333/client/draft
+content-type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJlMjU1MjhmNi00YzRlLTRjMWEtYjUxNi1jNzBhNjExNTdhYzkiLCJyb2xlIjoiQ0xJRU5UIiwiZW1haWwiOiJ0ZXN0MUB0ZXN0LmNvbSIsImlhdCI6MTY1OTI1ODE5NCwiZXhwIjoxNjU5MjY4OTk0fQ.YnAFkzbFA3FAFn8cv9uTVpwbNY9OV6Scn9O7PQ14qV0
+
+{
+"id" : "a650d4c5-9722-44c0-b05e-970ae141efd3",
+"body" : [{
+    "colsNumber": 2,
+    "gap" : 5,
+    "cols" : []
+}]
+}
+
+### Delete Draft
+DELETE     http://localhost:3333/client/draft
+content-type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJlMjU1MjhmNi00YzRlLTRjMWEtYjUxNi1jNzBhNjExNTdhYzkiLCJyb2xlIjoiQ0xJRU5UIiwiZW1haWwiOiJ0ZXN0MUB0ZXN0LmNvbSIsImlhdCI6MTY1OTI1ODE5NCwiZXhwIjoxNjU5MjY4OTk0fQ.YnAFkzbFA3FAFn8cv9uTVpwbNY9OV6Scn9O7PQ14qV0
+
+{
+    "id" : "9e48a389-c621-47e9-8653-5a7b4abb0a7d"
+}

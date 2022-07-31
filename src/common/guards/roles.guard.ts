@@ -18,7 +18,7 @@ export class RolesGuard implements CanActivate {
     const { role } = request.user;
 
     const matchRole = roles.findIndex((each) => each.toString() === role) >= 0;
-    if (!matchRole) throw new UnauthorizedException('Permision denied');
+    if (!matchRole) throw new UnauthorizedException('Access denied');
 
     return matchRole;
   }
