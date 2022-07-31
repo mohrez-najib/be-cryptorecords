@@ -59,7 +59,7 @@ export class AuthService {
     return tokens;
   }
 
-  async logout(userId: number) {
+  async logout(userId: string) {
     await this.prisma.user.updateMany({
       where: {
         id: userId,
@@ -71,7 +71,7 @@ export class AuthService {
     return true;
   }
 
-  async refreshToken(userId: number, rt: string): Promise<Tokens> {
+  async refreshToken(userId: string, rt: string): Promise<Tokens> {
     const user = await this.prisma.user.findUnique({
       where: {
         id: userId,
@@ -89,7 +89,7 @@ export class AuthService {
     return tokens;
   }
 
-  async refreshTokens(userId: number, rt: string): Promise<Tokens> {
+  async refreshTokens(userId: string, rt: string): Promise<Tokens> {
     const user = await this.prisma.user.findUnique({
       where: {
         id: userId,
@@ -107,7 +107,7 @@ export class AuthService {
     return tokens;
   }
 
-  async updateRtHash(userId: number, rt: string): Promise<void> {
+  async updateRtHash(userId: string, rt: string): Promise<void> {
     const hash = await argon.hash(rt);
     await this.prisma.user.update({
       where: {
@@ -119,7 +119,7 @@ export class AuthService {
     });
   }
   async getTokens(
-    userId: number,
+    userId: string,
     email: string,
     role: string,
   ): Promise<Tokens> {
@@ -132,7 +132,7 @@ export class AuthService {
     const [at, rt] = await Promise.all([
       this.jwtService.signAsync(jwtPayload, {
         secret: this.config.get<string>('AT_SECRET'),
-        expiresIn: '15m',
+        expiresIn: '3h',
       }),
       this.jwtService.signAsync(jwtPayload, {
         secret: this.config.get<string>('RT_SECRET'),

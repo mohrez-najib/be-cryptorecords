@@ -1,5 +1,14 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
 model User {
-  id           Int      @id @default(autoincrement())
+  id           String   @id @default(uuid())
   createdAt    DateTime @default(now())
   updatedAt    DateTime @default(now())
   email        String   @unique
@@ -10,6 +19,7 @@ model User {
   password     String
   refreshToken String?
   role         Role?    @default(CLIENT)
+  drafs        Draft[]
 
   @@map("users")
 }
@@ -19,11 +29,22 @@ enum Role {
   ADMIN
   SUPER_ADMIN
 }
-generator client {
-  provider = "prisma-client-js"
+
+model Draft {
+  id        String   @id @default(uuid())
+  createdAt DateTime @default(now())
+  updatedAt DateTime @default(now())
+  creator   User     @relation(fields: [creatorId], references: [id])
+  creatorId String
+  body      Json
+
+  @@map("drafts")
 }
 
-datasource db {
-  provider = "postgresql"
-  url      = env("DATABASE_URL")
+model Contract {
+  id        String   @id @default(uuid())
+  createdAt DateTime @default(now())
+  updatedAt DateTime @default(now())
+
+  @@map("contracts")
 }
