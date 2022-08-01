@@ -1,7 +1,10 @@
+@api_base_url = http://localhost:3333
+@token = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJlMjU1MjhmNi00YzRlLTRjMWEtYjUxNi1jNzBhNjExNTdhYzkiLCJyb2xlIjoiQ0xJRU5UIiwiZW1haWwiOiJ0ZXN0MUB0ZXN0LmNvbSIsImlhdCI6MTY1OTM2NzUxMSwiZXhwIjoxNjU5Mzc4MzExfQ.qPQpgLxmPLAvNwdEkyDNLkXHWlvk5iQXc9FvYl--Ni0
+@draft_id = 4168779a-0d13-4ef3-ad3f-bb71c556a5b1
 ### Creat Draft
-POST    http://localhost:3333/client/draft
+POST    {{api_base_url}}/client/draft
 content-type: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJlMjU1MjhmNi00YzRlLTRjMWEtYjUxNi1jNzBhNjExNTdhYzkiLCJyb2xlIjoiQ0xJRU5UIiwiZW1haWwiOiJ0ZXN0MUB0ZXN0LmNvbSIsImlhdCI6MTY1OTI1ODE5NCwiZXhwIjoxNjU5MjY4OTk0fQ.YnAFkzbFA3FAFn8cv9uTVpwbNY9OV6Scn9O7PQ14qV0
+Authorization: Bearer {{token}}
 
 {
 "body" : [{
@@ -11,22 +14,22 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJlMjU1MjhmN
 }]
 }
 ### Get Draft
-GET     http://localhost:3333/client/draft?id=a650d4c5-9722-44c0-b05e-970ae141efd3
+GET     {{api_base_url}}/client/draft?id={{draft_id}}
 content-type: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJlMjU1MjhmNi00YzRlLTRjMWEtYjUxNi1jNzBhNjExNTdhYzkiLCJyb2xlIjoiQ0xJRU5UIiwiZW1haWwiOiJ0ZXN0MUB0ZXN0LmNvbSIsImlhdCI6MTY1OTI1ODE5NCwiZXhwIjoxNjU5MjY4OTk0fQ.YnAFkzbFA3FAFn8cv9uTVpwbNY9OV6Scn9O7PQ14qV0
+Authorization: Bearer {{token}}
 
 ### Get All My Drafts
-GET     http://localhost:3333/client/draft/list
+GET     {{api_base_url}}/client/draft/list
 content-type: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJlMjU1MjhmNi00YzRlLTRjMWEtYjUxNi1jNzBhNjExNTdhYzkiLCJyb2xlIjoiQ0xJRU5UIiwiZW1haWwiOiJ0ZXN0MUB0ZXN0LmNvbSIsImlhdCI6MTY1OTI1ODE5NCwiZXhwIjoxNjU5MjY4OTk0fQ.YnAFkzbFA3FAFn8cv9uTVpwbNY9OV6Scn9O7PQ14qV0
+Authorization: Bearer {{token}}
 
 ### Update Draft
-PUT    http://localhost:3333/client/draft
+PUT    {{api_base_url}}/client/draft
 content-type: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJlMjU1MjhmNi00YzRlLTRjMWEtYjUxNi1jNzBhNjExNTdhYzkiLCJyb2xlIjoiQ0xJRU5UIiwiZW1haWwiOiJ0ZXN0MUB0ZXN0LmNvbSIsImlhdCI6MTY1OTI1ODE5NCwiZXhwIjoxNjU5MjY4OTk0fQ.YnAFkzbFA3FAFn8cv9uTVpwbNY9OV6Scn9O7PQ14qV0
+Authorization: Bearer {{token}}
 
 {
-"id" : "a650d4c5-9722-44c0-b05e-970ae141efd3",
+"id" : "{{draft_id}}",
 "body" : [{
     "colsNumber": 2,
     "gap" : 5,
@@ -35,10 +38,10 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJlMjU1MjhmN
 }
 
 ### Delete Draft
-DELETE     http://localhost:3333/client/draft
+DELETE     {{api_base_url}}/client/draft
 content-type: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJlMjU1MjhmNi00YzRlLTRjMWEtYjUxNi1jNzBhNjExNTdhYzkiLCJyb2xlIjoiQ0xJRU5UIiwiZW1haWwiOiJ0ZXN0MUB0ZXN0LmNvbSIsImlhdCI6MTY1OTI1ODE5NCwiZXhwIjoxNjU5MjY4OTk0fQ.YnAFkzbFA3FAFn8cv9uTVpwbNY9OV6Scn9O7PQ14qV0
+Authorization: Bearer {{token}}
 
 {
-    "id" : "9e48a389-c621-47e9-8653-5a7b4abb0a7d"
+    "id" : "{{draft_id}}"
 }

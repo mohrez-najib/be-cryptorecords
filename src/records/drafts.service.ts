@@ -1,4 +1,8 @@
-import { Injectable, NotFoundException } from '@nestjs/common';
+import {
+  Injectable,
+  NotAcceptableException,
+  NotFoundException,
+} from '@nestjs/common';
 import { PrismaClientKnownRequestError } from '@prisma/client/runtime';
 import { PrismaService } from 'src/prisma/prisma.service';
 import {
@@ -14,6 +18,15 @@ export class DraftsService {
 
   async create(dto: CreateDraftDto, userId: string) {
     const { body } = dto;
+    const userDrafts = await this.prisma.draft.findMany({
+      where: {
+        creatorId: userId,
+      },
+    });
+
+    if (userDrafts.length >= 5) {
+      throw new NotAcceptableException('You cannot add more than 5 drafts');
+    }
     const draft = await this.prisma.draft
       .create({
         data: {
@@ -104,6 +117,9 @@ export class DraftsService {
         where: {
           id,
         },
+        select: {
+          id: true,
+        },
       })
       .catch((error) => {
         if (error instanceof PrismaClientKnownRequestError) {
@@ -116,6 +132,6 @@ export class DraftsService {
     if (!draft) {
       throw new NotFoundException();
     }
-    return true;
+    return draft;
   }
 }
