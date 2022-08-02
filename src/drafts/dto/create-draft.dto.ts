@@ -1,9 +1,10 @@
 import { Type } from 'class-transformer';
-import { ValidateNested } from 'class-validator';
-import { RowDto } from './body.dto';
+import { ArrayNotEmpty, ValidateNested } from 'class-validator';
+import { RowDto } from './index';
 
 export class CreateDraftDto {
   @ValidateNested({ each: true })
   @Type(() => RowDto)
+  @ArrayNotEmpty()
   body: RowDto[];
 }

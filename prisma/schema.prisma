@@ -8,18 +8,21 @@ datasource db {
 }
 
 model User {
-  id           String   @id @default(uuid())
-  createdAt    DateTime @default(now())
-  updatedAt    DateTime @default(now())
-  email        String   @unique
-  username     String   @unique
-  firstName    String
-  lastName     String
-  avatar       String?
-  password     String
-  refreshToken String?
-  role         Role?    @default(CLIENT)
-  drafs        Draft[]
+  id               String     @id @default(uuid())
+  createdAt        DateTime   @default(now())
+  updatedAt        DateTime   @default(now())
+  email            String     @unique
+  username         String     @unique
+  firstName        String
+  lastName         String
+  avatar           String?
+  password         String
+  refreshToken     String?
+  role             Role?      @default(CLIENT)
+  drafs            Draft[]
+  createdContracts Contract[]
+  partiesContracts Party[]
+  witnessContracts Witness[]
 
   @@map("users")
 }
@@ -41,10 +44,38 @@ model Draft {
   @@map("drafts")
 }
 
+model Party {
+  person       User      @relation(fields: [personId], references: [id])
+  personId     String
+  signRequired Boolean
+  contract     Contract  @relation(fields: [contractId], references: [id])
+  contractId   String
+  signedAt     DateTime?
+
+  @@id([personId, contractId])
+}
+
+model Witness {
+  person       User      @relation(fields: [personId], references: [id])
+  personId     String
+  signRequired Boolean
+  contract     Contract  @relation(fields: [contractId], references: [id])
+  contractId   String
+  signedAt     DateTime?
+
+  @@id([personId, contractId])
+}
+
 model Contract {
-  id        String   @id @default(uuid())
-  createdAt DateTime @default(now())
-  updatedAt DateTime @default(now())
+  id        String    @id @default(uuid())
+  createdAt DateTime  @default(now())
+  updatedAt DateTime  @default(now())
+  creator   User      @relation(fields: [creatorId], references: [id])
+  creatorId String
+  body      Json
+  parties   Party[]
+  witnesses Witness[]
+  status    String
 
   @@map("contracts")
 }

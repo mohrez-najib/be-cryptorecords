@@ -3,19 +3,19 @@ POST http://localhost:3333/auth/register
 content-type: application/json
 
 {
-  "email": "test1@test.com",
+  "email": "test2@test.com",
   "password": "12345678",
   "passwordConfirm" : "12345678",
   "firstName" : "firstName",
   "lastName" : "firstName",
-  "username" : "@username"
+  "username" : "@username1"
 }
 ### Login
 POST http://localhost:3333/auth/login
 content-type: application/json
 
 {
-  "email": "test1@test.com",
+  "email": "test2@test.com",
   "password": "12345678"
 }
 

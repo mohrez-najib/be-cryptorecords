@@ -1,6 +1,6 @@
 import { Type } from 'class-transformer';
 import { IsNotEmpty, IsString, ValidateNested } from 'class-validator';
-import { RowDto } from './body.dto';
+import { RowDto } from './draft-body.dto';
 
 export class UpdateDraftDto {
   @IsString()

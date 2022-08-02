@@ -5,7 +5,8 @@ import { AuthModule } from './auth/auth.module';
 import { AtGuard } from './common/guards';
 import { RolesGuard } from './common/guards/roles.guard';
 import { PrismaModule } from './prisma/prisma.module';
-import { DraftsModule } from './records/drafts.module';
+import { DraftsModule } from './drafts/drafts.module';
+import { ContractsModule } from './contracts/contracts.module';
 
 @Module({
   imports: [
@@ -13,6 +14,7 @@ import { DraftsModule } from './records/drafts.module';
     AuthModule,
     PrismaModule,
     DraftsModule,
+    ContractsModule,
   ],
   providers: [
     {

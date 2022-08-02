@@ -1,0 +1,55 @@
+@api_base_url = http://localhost:3333
+@token = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI2ZDA0OTFiNC0zNDUzLTQ3YjMtOTRiMi1mOTA5MTRmMmRkOTUiLCJyb2xlIjoiQ0xJRU5UIiwiZW1haWwiOiJ0ZXN0MkB0ZXN0LmNvbSIsImlhdCI6MTY1OTQxNjI0NiwiZXhwIjoxNjU5NDI3MDQ2fQ.d5VvVBHiwtYNrLg3b4A2C-1uM9FCxYZBEkZ2hKMA1Po
+@contract_id = 7b9f2b15-b580-4cee-87a2-789d2b035819
+### Creat Contract
+POST    {{api_base_url}}/client/contract
+content-type: application/json
+Authorization: Bearer {{token}}
+
+{
+"parties" : [{"personId" : "6d0491b4-3453-47b3-94b2-f90914f2dd95" , "signRequired" : true}],
+"witnesses" : [],
+  "body" : [{
+    "colsNumber": 3,
+    "gap" : 4,
+    "cols" : [{
+    }]
+}]
+}
+### Get Contract
+GET     {{api_base_url}}/client/contract?id={{contract_id}}
+content-type: application/json
+Authorization: Bearer {{token}}
+
+### Get All My Created Contracts
+GET     {{api_base_url}}/client/contract/created/list
+content-type: application/json
+Authorization: Bearer {{token}}
+
+### Get All My Parties Contracts
+GET     {{api_base_url}}/client/contract/parties/list
+content-type: application/json
+Authorization: Bearer {{token}}
+
+### Update Draft
+PUT    {{api_base_url}}/client/draft
+content-type: application/json
+Authorization: Bearer {{token}}
+
+{
+"id" : "{{contract_id}}",
+"body" : [{
+    "colsNumber": 2,
+    "gap" : 5,
+    "cols" : []
+}]
+}
+
+### Delete Draft
+DELETE     {{api_base_url}}/client/draft
+content-type: application/json
+Authorization: Bearer {{token}}
+
+{
+    "id" : "{{contract_id}}"
+}
