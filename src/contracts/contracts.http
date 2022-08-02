@@ -31,6 +31,11 @@ GET     {{api_base_url}}/client/contract/parties/list
 content-type: application/json
 Authorization: Bearer {{token}}
 
+### Get All My Parties Contracts
+GET     {{api_base_url}}/client/contract/parties/list
+content-type: application/json
+Authorization: Bearer {{token}}
+
 ### Update Draft
 PUT    {{api_base_url}}/client/draft
 content-type: application/json
