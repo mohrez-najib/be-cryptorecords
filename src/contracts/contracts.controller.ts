@@ -1,22 +1,9 @@
-import {
-  Body,
-  Controller,
-  Delete,
-  Get,
-  Post,
-  Put,
-  Query,
-} from '@nestjs/common';
+import { Body, Controller, Get, Post, Put, Query } from '@nestjs/common';
 import { Role } from '@prisma/client';
 import { GetCurrentUserId } from 'src/common/decorators';
 import { Roles } from 'src/common/decorators/roles.decorators';
 import { ContractsService } from './contracts.service';
-import {
-  UpdateDraftDto,
-  DeleteDraftDto,
-  GetContractDto,
-  CreateContractDto,
-} from './dto';
+import { UpdateContractDto, GetContractDto, CreateContractDto } from './dto';
 
 @Controller()
 export class ContractsController {
@@ -34,7 +21,10 @@ export class ContractsController {
   getAllMyPartiesContracts(@GetCurrentUserId() userId: string) {
     return this.contractSercive.getAllPartiesContract(userId);
   }
-
+  @Get('client/contract/witness/list')
+  getAllWitnessContract(@GetCurrentUserId() userId: string) {
+    return this.contractSercive.getAllWitnessContract(userId);
+  }
   @Post('client/contract')
   @Roles(Role.CLIENT)
   create(@Body() dto: CreateContractDto, @GetCurrentUserId() userId: string) {
@@ -42,13 +32,7 @@ export class ContractsController {
   }
   @Put('client/contract')
   @Roles(Role.CLIENT)
-  update(@Body() dto: UpdateDraftDto) {
-    return this.contractSercive.update(dto);
-  }
-
-  @Delete('client/contract')
-  @Roles(Role.CLIENT)
-  delete(@Body() dto: DeleteDraftDto) {
-    return this.contractSercive.delete(dto);
+  update(@Body() dto: UpdateContractDto, @GetCurrentUserId() userId: string) {
+    return this.contractSercive.update(dto, userId);
   }
 }

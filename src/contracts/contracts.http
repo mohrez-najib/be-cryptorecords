@@ -1,13 +1,13 @@
 @api_base_url = http://localhost:3333
-@token = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI2ZDA0OTFiNC0zNDUzLTQ3YjMtOTRiMi1mOTA5MTRmMmRkOTUiLCJyb2xlIjoiQ0xJRU5UIiwiZW1haWwiOiJ0ZXN0MkB0ZXN0LmNvbSIsImlhdCI6MTY1OTQxNjI0NiwiZXhwIjoxNjU5NDI3MDQ2fQ.d5VvVBHiwtYNrLg3b4A2C-1uM9FCxYZBEkZ2hKMA1Po
-@contract_id = 7b9f2b15-b580-4cee-87a2-789d2b035819
+@token = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIzMjc5Mzc5My1iOTgwLTRhYjctOWUwZC1hNWNkOTRhMjMyNGUiLCJyb2xlIjoiQ0xJRU5UIiwiZW1haWwiOiJ0ZXN0MUB0ZXN0LmNvbSIsImlhdCI6MTY1OTQ3MTAzMywiZXhwIjoxNjU5NDgxODMzfQ.AR6Bze3ww8_RfAytfJ0Cp0XCKh_PgFbHWvITCjU2Y8s
+@contract_id = 30a49844-6314-4396-b62d-518dc3c4b894
 ### Creat Contract
 POST    {{api_base_url}}/client/contract
 content-type: application/json
 Authorization: Bearer {{token}}
 
 {
-"parties" : [{"personId" : "6d0491b4-3453-47b3-94b2-f90914f2dd95" , "signRequired" : true}],
+"parties" : [{"personId" : "63da981c-01d7-4ae3-b161-fd1f45341321" , "signRequired" : true}],
 "witnesses" : [],
   "body" : [{
     "colsNumber": 3,
@@ -36,25 +36,29 @@ GET     {{api_base_url}}/client/contract/parties/list
 content-type: application/json
 Authorization: Bearer {{token}}
 
-### Update Draft
-PUT    {{api_base_url}}/client/draft
+### Get All My Witness Contracts
+GET     {{api_base_url}}/client/contract/witness/list
+content-type: application/json
+Authorization: Bearer {{token}}
+
+### Update Contract
+PUT    {{api_base_url}}/client/contract
 content-type: application/json
 Authorization: Bearer {{token}}
 
 {
-"id" : "{{contract_id}}",
-"body" : [{
-    "colsNumber": 2,
-    "gap" : 5,
-    "cols" : []
+    "id" : "{{contract_id}}",
+"parties" : [{"personId" : "63da981c-01d7-4ae3-b161-fd1f45341321" , "signRequired" : true}],
+"witnesses" : [{
+    "personId" : "d7467d2f-4b03-474f-9fc5-667dc2222c13",
+    "signRequired" : false
+}],
+"isActive" : true,
+  "body" : [{
+    "colsNumber": 3,
+    "gap" : 4,
+    "cols" : [{
+    }]
 }]
 }
 
-### Delete Draft
-DELETE     {{api_base_url}}/client/draft
-content-type: application/json
-Authorization: Bearer {{token}}
-
-{
-    "id" : "{{contract_id}}"
-}

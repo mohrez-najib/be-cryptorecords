@@ -76,6 +76,7 @@ model Contract {
   parties   Party[]
   witnesses Witness[]
   status    String
+  isActive  Boolean @default(true)
 
   @@map("contracts")
 }

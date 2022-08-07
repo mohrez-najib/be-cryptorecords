@@ -1,9 +1,19 @@
-import { IsBoolean, IsNotEmpty, IsString } from 'class-validator';
+import {
+  IsBoolean,
+  IsDateString,
+  IsNotEmpty,
+  IsOptional,
+  IsString,
+} from 'class-validator';
 
 export class PartyDto {
   @IsString()
   @IsNotEmpty()
   personId: string;
+
+  @IsDateString()
+  @IsOptional()
+  signedAt: string;
 
   @IsBoolean()
   @IsNotEmpty()
@@ -14,6 +24,10 @@ export class WitnessDto {
   @IsString()
   @IsNotEmpty()
   personId: string;
+
+  @IsDateString()
+  @IsOptional()
+  signedAt: string;
 
   @IsBoolean()
   @IsNotEmpty()

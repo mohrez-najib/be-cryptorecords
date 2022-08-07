@@ -85,9 +85,9 @@ export class DraftsService {
     });
     return drafts;
   }
-  update(dto: UpdateDraftDto) {
+  async update(dto: UpdateDraftDto) {
     const { id, body } = dto;
-    const draft = this.prisma.draft
+    const draft = await this.prisma.draft
       .update({
         where: {
           id,
