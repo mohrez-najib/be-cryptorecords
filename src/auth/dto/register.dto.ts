@@ -35,5 +35,5 @@ export class RegisterDto {
   @MinLength(8)
   @MaxLength(20)
   @Match('password')
-  passwordConfirm: string;
+  confirmPassword: string;
 }
